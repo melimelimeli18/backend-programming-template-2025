@@ -1,11 +1,19 @@
 const express = require('express');
-
 const usersController = require('./users-controller');
 
 const route = express.Router();
 
-module.exports = (app) => {
-  app.use('/users', route);
+// module.exports = (app) => {
+module.exports = (app, prefix = '/users') => {
+  // app.use('/users', route);
+  app.use(prefix, route);
+  // app.use('/auth', usersRoutes);
+
+  // localhost:5000/authentication/login
+  // localhost:5000/api/users
+
+  // Login user
+  route.post('/login', usersController.loginUser);
 
   // Get list of users
   route.get('/', usersController.getUsers);
@@ -24,7 +32,4 @@ module.exports = (app) => {
 
   // Delete user
   route.delete('/:id', usersController.deleteUser);
-
-  //Login user
-  route.post('');
 };

@@ -10,6 +10,17 @@ const { errorResponder, errorTypes } = require('./errors');
 
 const app = express();
 
+// TESSSSSSSSSSSSSSSSSSSSSSSSSSSSsss
+const usersRoutes = require('../api/components/users/users-route');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// app.use('/authentication', usersRoutes);
+// app.use('/auth', usersRoutes.route);
+usersRoutes(app, '/authentication');
+
+//STOP DISINIII
+
 // Useful if behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc).
 // It shows the real origin IP in the Heroku or Cloudwatch logs.
 app.enable('trust proxy');
