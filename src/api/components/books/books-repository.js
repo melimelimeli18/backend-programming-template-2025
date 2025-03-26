@@ -8,6 +8,8 @@ async function create(title) {
   return Books.create({ title });
 }
 
+// async function update(id, title) {}
+
 module.exports = {
   getBooks,
   create,

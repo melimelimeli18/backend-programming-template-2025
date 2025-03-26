@@ -191,6 +191,8 @@ async function deleteUser(request, response, next) {
   }
 }
 
+// async function loginUser(request, response, next) {}
+
 module.exports = {
   getUsers,
   getUser,
