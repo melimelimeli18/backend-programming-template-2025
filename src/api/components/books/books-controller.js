@@ -41,5 +41,3 @@ module.exports = {
   getBooks,
   createBook,
 };
-
-// console.log(Books);
