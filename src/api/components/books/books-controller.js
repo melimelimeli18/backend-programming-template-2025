@@ -3,9 +3,19 @@ const { errorResponder, errorTypes } = require('../../../core/errors');
 
 async function getBooks(request, response, next) {
   try {
-    const books = await booksService.getBooks();
+    let { offset, limit } = request.query;
+    // const books = await booksService.getBooks();
 
-    return response.status(200).json(books);
+    offset = parseInt(offset, 10) || 0;
+    limit = parseInt(limit, 10) || 10;
+
+    const books = await booksService.getBooks(offset, limit);
+
+    // return response.status(200).json(books);
+    return response.status(200).json({
+      status: 'success',
+      data: books,
+    });
   } catch (error) {
     return next(error);
   }
@@ -31,3 +41,5 @@ module.exports = {
   getBooks,
   createBook,
 };
+
+// console.log(Books);

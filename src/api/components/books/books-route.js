@@ -15,7 +15,9 @@ module.exports = (app) => {
   route.post('/', booksController.createBook);
 
   // TODO: Get a book by id
-  route.get('/', booksService.getBooks);
+  // GET http://localhost:5000/api/books?offset=25&limit=10
+  // route.get('/', booksService.getBooks);
+  route.get('/', booksController.getBooks);
 
   // TODO: Update a book by id
 

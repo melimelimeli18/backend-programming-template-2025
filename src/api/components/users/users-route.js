@@ -5,9 +5,7 @@ const route = express.Router();
 
 // module.exports = (app) => {
 module.exports = (app, prefix = '/users') => {
-  // app.use('/users', route);
   app.use(prefix, route);
-  // app.use('/auth', usersRoutes);
 
   // localhost:5000/authentication/login
   // localhost:5000/api/users
